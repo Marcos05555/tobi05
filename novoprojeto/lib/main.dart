@@ -28,7 +28,7 @@ class Valor extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text('Transferênciasssss')),
+        appBar: AppBar(title: Text('Transferênciassssseeeeeeeeee')),
         /*body:TextField(obscureText: true, decoration :InputDecoration(border: OutlineInputBorder(),labelText:'senha')) ,*/
         body: Lista0(_controladorNome, _controladorValor));
   }
