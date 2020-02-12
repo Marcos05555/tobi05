@@ -8,8 +8,17 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme:
-          ThemeData(brightness: Brightness.light, primaryColor: Colors.green),
-      home: Scaffold(
+          ThemeData(brightness: Brightness.light, primaryColor: Colors.green,buttonTheme: ButtonThemeData(buttonColor: Colors.green,textTheme: ButtonTextTheme.primary)),
+      home: Dashboard()
+    );
+  }
+}
+
+class Dashboard extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(title:Text('Dashboard')),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.end,
@@ -24,17 +33,16 @@ class MyApp extends StatelessWidget {
                 padding:EdgeInsets.all(8.0) ,
                 height: 100,
                 width: 150,
-                color: Colors.green,
+                color: Theme.of(context).primaryColor,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[Icon(Icons.people,color: Colors.white,), Text('LOGIN',style:TextStyle(color: Colors.white)),],
+                  children: <Widget>[Icon(Icons.people,color: Colors.white,size: 32.0,), Text('LOGIN',style:TextStyle(color: Colors.white,fontSize: 16.0,)),],
                 ),
               ),
             )
           ],
         ),
-      ),
-    );
+      );
   }
 }
