@@ -23,15 +23,21 @@ class Dashboard extends StatelessWidget {
       appBar: AppBar(title: Text('UEA')),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.end,
-        
+       
         children: <Widget>[
           Padding(
             padding: const EdgeInsets.all(50.0),
             child: Image.asset('image/Vestibular_UEA_2019_1.png'),
           ),
-          ButtonText('Login',Icons.people),
-          ButtonText('Cadrastro',Icons.content_paste)
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: <Widget>[
+              
+              ButtonText('LOGIN', Icons.people),
+              ButtonText('CADASTRO', Icons.content_paste),
+              ButtonText('INFORMAÇÕES', Icons.info)
+            ],
+          ),
         ],
       ),
     );
@@ -41,29 +47,30 @@ class Dashboard extends StatelessWidget {
 class ButtonText extends StatelessWidget {
   final String stringName;
   final IconData icone;
-  ButtonText(this.stringName,this.icone);
-  
+  ButtonText(this.stringName, this.icone);
+
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
+    return Container(
+      padding: const EdgeInsets.all(4.0),
       child: Container(
         padding: EdgeInsets.all(8.0),
         height: 100,
-        width: 150,
+        width: 110,
         color: Theme.of(context).primaryColor,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Icon(icone,
+            Icon(
+              icone,
               color: Colors.white,
-              size: 32.0,
+              size: 24.0,
             ),
             Text(stringName,
                 style: TextStyle(
                   color: Colors.white,
-                  fontSize: 16.0,
+                  fontSize: 13.0,
                 )),
           ],
         ),
