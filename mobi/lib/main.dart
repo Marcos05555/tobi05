@@ -11,14 +11,25 @@ class MyApp extends StatelessWidget {
           ThemeData(brightness: Brightness.light, primaryColor: Colors.green),
       home: Scaffold(
         body: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.end,
           children: <Widget>[
-            Image.asset('image/Vestibular_UEA_2019_1.png'),
-            Container(
-              height: 120,
-              width: 120,
-              color: Colors.green,
-              child: Column(
-                children: <Widget>[Icon(Icons.people), Text('Login')],
+            Padding(
+              padding: const EdgeInsets.all(50.0),
+              child: Image.asset('image/Vestibular_UEA_2019_1.png'),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                padding:EdgeInsets.all(8.0) ,
+                height: 100,
+                width: 150,
+                color: Colors.green,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[Icon(Icons.people,color: Colors.white,), Text('LOGIN',style:TextStyle(color: Colors.white)),],
+                ),
               ),
             )
           ],
