@@ -11,7 +11,17 @@ class MyApp extends StatelessWidget {
           ThemeData(brightness: Brightness.light, primaryColor: Colors.green),
       home: Scaffold(
         body: Column(
-          children: <Widget>[Image.asset('image/489876.jpg')],
+          children: <Widget>[
+            Image.asset('image/Vestibular_UEA_2019_1.png'),
+            Container(
+              height: 120,
+              width: 120,
+              color: Colors.green,
+              child: Column(
+                children: <Widget>[Icon(Icons.people), Text('Login')],
+              ),
+            )
+          ],
         ),
       ),
     );
