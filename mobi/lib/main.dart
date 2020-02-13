@@ -56,7 +56,7 @@ class ButtonText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(4.0, 4.0, 4.0, 4.0),
+      padding: const EdgeInsets.fromLTRB(4.0, 100.0, 4.0, 4.0),
       //decoration: BoxDecoration(color: Colors.black,border: Border.all(width:1),borderRadius: BorderRadius.circular(10)),
       child: Material(
         color: Theme.of(context).primaryColor,
