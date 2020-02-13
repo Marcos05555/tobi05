@@ -8,12 +8,13 @@ class RegisterScreen extends StatelessWidget {
         title: Text('CADASTRO'),
       ),
       body: SingleChildScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             TextBox(Icons.people, 'Nome', 'Nome de usuário'),
             TextBox(Icons.lock_outline, 'Senha', 'Senha de usuário'),
-            TextBox(Icons.lock_open, 'Confimar senha', 'Confimar senha de usuário'),
+            TextBox(
+                Icons.lock_open, 'Confimar senha', 'Confimar senha de usuário'),
             RaisedButton(
               onPressed: () {},
               child: Text(

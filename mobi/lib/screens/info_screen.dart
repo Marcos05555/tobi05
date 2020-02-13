@@ -6,6 +6,24 @@ class InfoScreen extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
       title: Text('INFORMAÇÃO'),
-    ));
+
+    ),body: Padding(
+      padding: const EdgeInsets.all(8.0),
+      
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.fromLTRB(30.0,50.0,30.0,100.0),
+            child: Image.asset('image/montagem.jpg',),
+          ),
+          Padding(
+            
+            padding: const EdgeInsets.all(4.0),
+            child: Text('Esse aplicativo foi desenvolvido pelos alunos da UEA para auxiliar de médicos do projeto da PROEX',style: TextStyle(fontSize: 24.0,color: Colors.green)),
+          ),
+        ],
+      ),
+    ),);
   }
 }
