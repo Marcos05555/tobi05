@@ -44,6 +44,7 @@ flutter:
  assets:
    - image/Vestibular_UEA_2019_1.png
    - image/montagem.jpg
+   - image/Screenshot_20200214-113120.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

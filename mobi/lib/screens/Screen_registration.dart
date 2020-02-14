@@ -16,7 +16,7 @@ class RegisterScreen extends StatelessWidget {
             TextBox(
                 Icons.lock_open, 'Confimar senha', 'Confimar senha de usuário'),
             RaisedButton(
-              onPressed: () {},
+              onPressed: () {Navigator.pop(context);},
               child: Text(
                 'Confirmar',
                 style: TextStyle(fontSize: 16),

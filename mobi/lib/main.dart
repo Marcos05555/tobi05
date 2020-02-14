@@ -61,7 +61,7 @@ class ButtonText extends StatelessWidget {
       child: Material(
         color: Theme.of(context).primaryColor,
         child: InkWell(
-          onTap: () {
+          onTap: () { //gera eventos
             Navigator.of(context)
                 .push(MaterialPageRoute(builder: (context) => screenDesired));
           },
