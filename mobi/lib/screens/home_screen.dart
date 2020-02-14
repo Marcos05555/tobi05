@@ -18,10 +18,19 @@ class HomeScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  AspectRatio(
-                      aspectRatio: 5 / 1,
-                      child:
-                          Align( alignment: Alignment.topLeft,child: Image.asset('image/Screenshot_20200214-113120.png',))),
+                  Align(
+                      alignment: Alignment.topLeft,
+                      child: Container(
+                        width: 100,
+                        height: 100,
+                        decoration: new BoxDecoration(
+                          color: Colors.white,
+                          shape: BoxShape.circle,
+                          image: new DecorationImage(
+                              image: new ExactAssetImage(
+                                  'image/Screenshot_20200214-113120.png')),
+                        ),
+                      )),
                   Text(
                     'Nome do usuário',
                     style: TextStyle(color: Colors.white, fontSize: 24),
