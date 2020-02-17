@@ -13,6 +13,7 @@ class HomeScreen extends StatelessWidget {
           padding: EdgeInsets.all(0),
           children: <Widget>[
             DrawerHeader(
+              
               decoration: BoxDecoration(color: Colors.green),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -38,6 +39,12 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
             ),
+            LisTileInfo(Icons.people,'Pacientes'),
+            LisTileInfo(Icons.person_add,'Cadastrar paciente'),
+            LisTileInfo(Icons.notifications_none,'Notificações'),
+            LisTileInfo(Icons.info,'informações de usuário'),
+            
+            
           ],
         ),
       ),
@@ -49,6 +56,21 @@ class HomeScreen extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+}
+
+
+class LisTileInfo extends StatelessWidget {
+  final IconData icone;
+  final String textListe;
+  LisTileInfo(this.icone,this.textListe);
+  @override
+  Widget build(BuildContext context) {
+    var icone2 = icone;
+    return ListTile(
+      leading: Icon(icone),
+      title: Text(textListe),
     );
   }
 }
