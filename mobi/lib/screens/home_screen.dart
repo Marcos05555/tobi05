@@ -1,5 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'Screen_ patient.dart';
+import 'Screen_patientRegister.dart';
+import 'Screen_userInfo.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -13,7 +16,6 @@ class HomeScreen extends StatelessWidget {
           padding: EdgeInsets.all(0),
           children: <Widget>[
             DrawerHeader(
-              
               decoration: BoxDecoration(color: Colors.green),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -39,12 +41,10 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
             ),
-            LisTileInfo(Icons.people,'Pacientes'),
-            LisTileInfo(Icons.person_add,'Cadastrar paciente'),
-            LisTileInfo(Icons.notifications_none,'Notificações'),
-            LisTileInfo(Icons.info,'informações de usuário'),
-            
-            
+            LisTileInfo(Icons.people, 'Pacientes', PatientScreen()),
+            LisTileInfo(Icons.person_add, 'Cadastrar paciente', PatientRegisterScreen()),
+            LisTileInfo(Icons.notifications_none, 'Notificações', PatientRegisterScreen()),
+            LisTileInfo(Icons.info, 'Informações de usuário', UserInfoScreen()),
           ],
         ),
       ),
@@ -60,17 +60,25 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
+class PatientRegisScreen {
+}
 
 class LisTileInfo extends StatelessWidget {
   final IconData icone;
   final String textListe;
-  LisTileInfo(this.icone,this.textListe);
+  final Widget screenDesired;
+  LisTileInfo(this.icone, this.textListe, this.screenDesired);
   @override
   Widget build(BuildContext context) {
-    var icone2 = icone;
+    //var icone2 = icone;
     return ListTile(
       leading: Icon(icone),
       title: Text(textListe),
+      onTap: () {
+        //gera eventos
+        Navigator.of(context)
+            .push(MaterialPageRoute(builder: (context) => screenDesired));
+      },
     );
   }
 }
