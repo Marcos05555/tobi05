@@ -1,8 +1,10 @@
+
 import 'dart:io';
+
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
-import 'home_screen.dart';
 import 'package:mobi/screens/Screen_registration.dart';
+import 'home_screen.dart';
+import 'package:image_picker/image_picker.dart';
 
 void main() => runApp(PatientRegisterScreen());
 
@@ -12,6 +14,8 @@ class PatientRegisterScreen extends StatefulWidget {
 
 class _PatientRegisterScreenState extends State<PatientRegisterScreen> {
   @override
+  
+  
   File _image;
 
   Future getImage(bool isCamera) async {
@@ -51,6 +55,7 @@ class _PatientRegisterScreenState extends State<PatientRegisterScreen> {
   }
 
   Widget build(BuildContext context) {
+    var textBox = TextBox(Icons.person, 'Nome', 'Nome do Paciente',null);
     return Scaffold(
       appBar: AppBar(
         title: Text('Cadastro de Paciente'),
@@ -64,8 +69,8 @@ class _PatientRegisterScreenState extends State<PatientRegisterScreen> {
           ),
           decideImageView(),
           //_image == null? Container(): Image.file(_image,height: 300.0,width: 300.0,),
-          TextBox(Icons.person, 'Nome', 'Nome do Paciente'),
-          TextBox(Icons.event_note, 'Idade', 'Idade do Paciente'),
+          textBox,
+          TextBox(Icons.event_note, 'Idade', 'Idade do Paciente',null),
           RaisedButton(
             onPressed: () {
               Navigator.of(context)
