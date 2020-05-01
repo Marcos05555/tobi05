@@ -7,9 +7,12 @@ class User{
   final int id;
   final String logindeuser;
   final String senhadeuser;
-  final File   fotodeuser;
+  // final File   fotodeuser;
 
-  User( this.logindeuser, this.senhadeuser, this.fotodeuser, this.id);
+  User( this.id , this.logindeuser, this.senhadeuser);
+  String toString(){
+    return 'Contact{id: $id , name: $logindeuser, senha: $senhadeuser}';
+  }
 }
 
 class Utility {

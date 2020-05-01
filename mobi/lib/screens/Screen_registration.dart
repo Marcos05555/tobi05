@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:image_picker/image_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:mobi/database/app_database.dart';
 import 'package:mobi/modelo/user.dart';
 
 class RegisterScreen extends StatefulWidget {
@@ -20,11 +21,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
     if (isCamera) {
       image = await ImagePicker.pickImage(source: ImageSource.camera);
     } else {
-      image = await ImagePicker.pickImage(source: ImageSource.gallery).then(_image);
+      image = await ImagePicker.pickImage(source: ImageSource.gallery);
     }
     setState(() {
       _image = image;
-      String ee = Utility.base64String(_image.readAsBytesSync());
+      // String ee = Utility.base64String(_image.readAsBytesSync());
+      
     });
   }
 
@@ -77,12 +79,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
               onPressed: () {
                 final String name = _controllerLogin.toString();
                 final String senha = _controllerSenha.toString();
-                final User newUser = User(name, senha, null,0);
+                save(User(2,'alexd','ss')).then((id){
+                  findAll().then((users) => debugPrint(users.toString()));
+                });
                 // if (name != null && senha != null){
 
                 // debugPrint(_controllerLogin.text);
                 // debugPrint(_controllerSenha.text);}
-                Navigator.pop(context);
+                // Navigator.pop(context);
               },
             )
           ],
