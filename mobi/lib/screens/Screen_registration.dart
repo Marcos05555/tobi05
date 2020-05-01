@@ -20,10 +20,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
     if (isCamera) {
       image = await ImagePicker.pickImage(source: ImageSource.camera);
     } else {
-      image = await ImagePicker.pickImage(source: ImageSource.gallery);
+      image = await ImagePicker.pickImage(source: ImageSource.gallery).then(_image);
     }
     setState(() {
       _image = image;
+      String ee = Utility.base64String(_image.readAsBytesSync());
     });
   }
 
@@ -51,6 +52,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
     }
   }
 
+  
 
   Widget build(BuildContext context) {
     return Scaffold(
@@ -75,7 +77,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               onPressed: () {
                 final String name = _controllerLogin.toString();
                 final String senha = _controllerSenha.toString();
-                final User newUser = User(name, senha, null);
+                final User newUser = User(name, senha, null,0);
                 // if (name != null && senha != null){
 
                 // debugPrint(_controllerLogin.text);

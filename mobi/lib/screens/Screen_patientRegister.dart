@@ -22,6 +22,7 @@ class _PatientRegisterScreenState extends State<PatientRegisterScreen> {
     File image;
     if (isCamera) {
       image = await ImagePicker.pickImage(source: ImageSource.camera);
+      
     } else {
       image = await ImagePicker.pickImage(source: ImageSource.gallery);
     }
@@ -86,3 +87,4 @@ class _PatientRegisterScreenState extends State<PatientRegisterScreen> {
     );
   }
 }
+
