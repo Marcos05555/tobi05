@@ -15,7 +15,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   final TextEditingController _controllerSenha = TextEditingController();
 
   File _image;
-
+  
   Future getImage(bool isCamera) async {
     File image;
     if (isCamera) {
@@ -25,6 +25,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
     }
     setState(() {
       _image = image;
+      
+      
       // String ee = Utility.base64String(_image.readAsBytesSync());
       
     });
@@ -77,9 +79,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 style: TextStyle(fontSize: 16),
               ),
               onPressed: () {
-                final String name = _controllerLogin.toString();
-                final String senha = _controllerSenha.toString();
-                save(User(2,'alexd','ss')).then((id){
+                final String name = _controllerLogin.text;
+                final String senha = _controllerSenha.text;
+                final String ifo  = Utility.base64String(_image.readAsBytesSync());
+                // final String eee =Image
+                debugPrint('weqweqw'+ ifo);
+                final User usuario = User(2,name,senha,ifo);
+                save(usuario).then((id){
                   findAll().then((users) => debugPrint(users.toString()));
                 });
                 // if (name != null && senha != null){

@@ -7,13 +7,15 @@ class User{
   final int id;
   final String logindeuser;
   final String senhadeuser;
-  // final File   fotodeuser;
+   final String fotodeuser;
 
-  User( this.id , this.logindeuser, this.senhadeuser);
+  User( this.id , this.logindeuser, this.senhadeuser, this.fotodeuser);
   String toString(){
     return 'Contact{id: $id , name: $logindeuser, senha: $senhadeuser}';
   }
 }
+
+
 
 class Utility {
  
@@ -23,11 +25,7 @@ class Utility {
       fit: BoxFit.fill,
     );
   }
- 
-  static Uint8List dataFromBase64String(String base64String) {
-    return base64Decode(base64String);
-  }
- 
+  
   static String base64String(Uint8List data) {
     return base64Encode(data);
   }
