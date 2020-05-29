@@ -36,6 +36,7 @@ Future<List<User>> findAll() {
         final User contact =
             User(map['id'], map['name'], map['senha'], map['foto']);
             users.add(contact);
+            
       }
       return users;
     });
