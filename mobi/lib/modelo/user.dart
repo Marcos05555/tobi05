@@ -6,12 +6,12 @@ import 'package:flutter/material.dart';
 class User{
   final int id;
   final String logindeuser;
-  final String senhadeuser;
+  final int idade;
    final String fotodeuser;
 
-  User( this.id , this.logindeuser, this.senhadeuser, this.fotodeuser);
+  User( this.id , this.logindeuser, this.idade, this.fotodeuser);
   String toString(){
-    return 'Contact{id: $id , name: $logindeuser, senha: $senhadeuser}';
+    return 'Contact{id: $id , name: $logindeuser, senha: $idade}';
   }
 }
 

@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'Screen_ patient.dart';
+import 'Screen_pacientes.dart';
 import 'Screen_patientRegister.dart';
 import 'Screen_userInfo.dart';
 

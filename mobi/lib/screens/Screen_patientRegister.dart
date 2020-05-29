@@ -5,7 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:mobi/screens/Screen_registration.dart';
 import 'home_screen.dart';
 import 'package:image_picker/image_picker.dart';
-
+import 'package:mobi/modelo/user.dart';
+import 'package:mobi/database/app_database.dart';
 void main() => runApp(PatientRegisterScreen());
 
 class PatientRegisterScreen extends StatefulWidget {
@@ -13,7 +14,10 @@ class PatientRegisterScreen extends StatefulWidget {
 }
 
 class _PatientRegisterScreenState extends State<PatientRegisterScreen> {
-  @override
+
+  final TextEditingController _controllerLogin = TextEditingController();
+
+  final TextEditingController _controllerIdade = TextEditingController();
   
   
   File _image;
@@ -56,33 +60,39 @@ class _PatientRegisterScreenState extends State<PatientRegisterScreen> {
   }
 
   Widget build(BuildContext context) {
-    var textBox = TextBox(Icons.person, 'Nome', 'Nome do Paciente',null);
     return Scaffold(
       appBar: AppBar(
         title: Text('Cadastro de Paciente'),
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          //IconButton(icon:Icon(Icons.camera_alt,size: 300.0), onPressed: (){getImage(true);}),
-          SizedBox(
-            height: 10.0,
-          ),
-          decideImageView(),
-          //_image == null? Container(): Image.file(_image,height: 300.0,width: 300.0,),
-          textBox,
-          TextBox(Icons.event_note, 'Idade', 'Idade do Paciente',null),
-          RaisedButton(
-            onPressed: () {
-              Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (context) => HomeScreen()));
-            },
-            child: Text(
-              'Salvar',
-              style: TextStyle(fontSize: 16),
+      body: SingleChildScrollView(
+              child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            //IconButton(icon:Icon(Icons.camera_alt,size: 300.0), onPressed: (){getImage(true);}),
+            SizedBox(
+              height: 10.0,
             ),
-          )
-        ],
+            decideImageView(),
+            //_image == null? Container(): Image.file(_image,height: 300.0,width: 300.0,),
+            TextBox(Icons.person, 'Nome', 'Nome do Paciente',_controllerLogin),
+            TextBox(Icons.event_note, 'Idade', 'Idade do Paciente',_controllerIdade),
+            RaisedButton(
+              onPressed: () {
+                final String name = _controllerLogin.text;
+                final int idade = int.tryParse(_controllerIdade.text);
+                final User usuario = User(2,name,idade,null);
+                save(usuario).then((id){
+                  findAll().then((users) => debugPrint(users.toString()));
+                });
+                
+              },
+              child: Text(
+                'Salvar',
+                style: TextStyle(fontSize: 16),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

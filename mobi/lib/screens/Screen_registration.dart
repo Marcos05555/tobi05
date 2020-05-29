@@ -79,15 +79,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 style: TextStyle(fontSize: 16),
               ),
               onPressed: () {
-                final String name = _controllerLogin.text;
+               final String name = _controllerLogin.text;
                 final String senha = _controllerSenha.text;
                 final String ifo  = Utility.base64String(_image.readAsBytesSync());
                 // final String eee =Image
-                debugPrint('weqweqw'+ ifo);
-                final User usuario = User(2,name,senha,ifo);
+                ///debugPrint('weqweqw'+ ifo);
+                final User usuario = User(2,name,int.tryParse(senha),ifo);
                 save(usuario).then((id){
                   findAll().then((users) => debugPrint(users.toString()));
-                });
+                }); 
                 // if (name != null && senha != null){
 
                 // debugPrint(_controllerLogin.text);
